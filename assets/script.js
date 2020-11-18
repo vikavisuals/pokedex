@@ -21,8 +21,8 @@ function fetchPokemon() {
       console.log(results.name);
 
       // Links up Pokemon name display
-      let displayPokemon = document.getElementById("displayPokemon");
-      displayPokemon.innerHTML = `${results.name.toUpperCase()}`;
+      let displayName = document.getElementById("displayName");
+      displayName.innerHTML = `${results.name.toUpperCase()}`;
 
       // Links up Pokemon ID for sprite display
       document.getElementById("displaySprite").src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
