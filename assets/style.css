@@ -43,10 +43,45 @@
   border: none;
   text-align: center;
   resize: none;
-  font-size: 100px;
+  font-size: 70px;
+}
+
+#displayType {
+  font-family: 'Quicksand', sans-serif;
+  border: none;
+  text-align: center;
+  resize: none;
+  font-size: 40px;
 }
 
 #displaySprite {
   width: 300px;
   margin-top: 30px;
+}
+
+/* Chrome autocomplete text edit for search bar */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  color: black;
+  background-color: rgb(167, 167, 167);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+  margin: 80px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  width: 500px;
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  -webkit-box-shadow: 0 0 0px 1000px  rgb(167, 167, 167) inset;
 }

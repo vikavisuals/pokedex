@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Pokedex</title>
 
   <!-- Reset file that erases all different browser default HTML -->
@@ -22,17 +21,22 @@
   <div id="fullPage">
 
     <!-- Search bar for finding pokemon by name -->
-    <input type="text" id="searchBar" placeholder="Search for Pokemon">
-
+    <form id="searchForm" method="post">
+    <input type="text" id="searchBar" placeholder="Search for Pokemon" value="">
+    <br>
     <!-- Search button -->
     <button id="searchBtn" class="btn shadow-none">
       Search
     </button>
+  </form>
 
     <br>
 
     <!-- Displays Pokemon name -->
     <h1 id="displayName"></h1>
+    <br>
+    <!-- Displays Pokemon type -->
+    <h1 id="displayType"></h1>
     <br>
     <!-- Displays Pokemon image -->
     <img id="displaySprite" src="./images/pokeball.png" alt="Pokemon Image">
