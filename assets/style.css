@@ -3,7 +3,21 @@
   text-align: center;
 }
 
-#searchPokemon {
+#searchBar {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  color: white;
+  background-color: rgb(167, 167, 167);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin: 100px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 500px;
+}
+
+#searchBtn {
   border: none;
   outline: none;
   border-radius: 15px;
@@ -11,18 +25,17 @@
   background-color: rgb(139, 37, 37);
   font-family: 'Quicksand', sans-serif;
   font-size: 50px;
-  margin: 100px;
-  margin-bottom: 50px;
+  margin: 50px;
   padding: 10px;
   width: 500px;
   transition: .5s ease;
 }
-#searchPokemon:hover {
-background-color: rgb(71, 23, 23);
-transform: scale(1.05);
-transition: .5s ease;
+#searchBtn:hover {
+  background-color: rgb(71, 23, 23);
+  transform: scale(1.05);
+  transition: .5s ease;
 }
-#searchPokemon:active {
+#searchBtn:active {
   background-color: rgb(98, 70, 129);
   transition: .0s ease;
 }

@@ -1,14 +1,14 @@
 
 // Button that searches for a pokemon
-const searchPokemon = document.querySelector("#searchPokemon");
-searchPokemon.addEventListener("click", fetchPokemon);
+const searchBtn = document.querySelector("#searchBtn");
+searchBtn.addEventListener("click", fetchPokemon);
 
 
 // Pokemon API info fetch
 function fetchPokemon() {
 
-  let pokeName = "dratini"
-  let url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`
+  let pokeName = "dratini";
+  let url = `https://pokeapi.co/api/v2/pokemon/${pokeName}/`;
 
   // Call the fetch function passing the url of the API as a parameter
   fetch(url)
@@ -18,14 +18,14 @@ function fetchPokemon() {
     })
     // Your code for handling the data you get from the API
     .then(function (results) {
-      console.log(results);
+      console.log(results.name);
 
       // Links up Pokemon name display
-      let displayPokemon = document.querySelector("#displayPokemon");
-      displayPokemon.value = results.name;
+      let displayPokemon = document.getElementById("displayPokemon");
+      displayPokemon.innerHTML = `${results.name.toUpperCase()}`;
 
       // Links up Pokemon ID for sprite display
-      document.getElementById("displaySprite").src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
+      document.getElementById("displaySprite").src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
     });
 
 };
