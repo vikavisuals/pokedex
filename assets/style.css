@@ -1,0 +1,36 @@
+
+#fullPage {
+  text-align: center;
+}
+
+#searchPokemon {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  color: white;
+  background-color: rgb(139, 37, 37);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  margin: 100px;
+  margin-bottom: 50px;
+  padding: 10px;
+  width: 500px;
+  transition: .5s ease;
+}
+#searchPokemon:hover {
+background-color: rgb(71, 23, 23);
+transform: scale(1.05);
+transition: .5s ease;
+}
+#searchPokemon:active {
+  background-color: rgb(98, 70, 129);
+  transition: .0s ease;
+}
+
+#displayPokemon {
+  font-family: 'Quicksand', sans-serif;
+  border: none;
+  text-align: center;
+  resize: none;
+  font-size: 100px;
+}
