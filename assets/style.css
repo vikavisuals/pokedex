@@ -34,3 +34,7 @@ transition: .5s ease;
   resize: none;
   font-size: 100px;
 }
+
+#displaySprite {
+  width: 200px;
+}

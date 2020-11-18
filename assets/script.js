@@ -19,12 +19,12 @@ function fetchPokemon() {
     // Your code for handling the data you get from the API
     .then(function (results) {
       console.log(results);
-      console.log(results.name);
-      console.log(results.id);
 
+      // Links up Pokemon name display
       let displayPokemon = document.querySelector("#displayPokemon");
       displayPokemon.value = results.name;
 
+      // Links up Pokemon ID for sprite display
       document.getElementById("displaySprite").src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
     });
 
