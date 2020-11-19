@@ -15,6 +15,7 @@ searchBtn.addEventListener("click", resetSearchInfo);
 function resetSearchInfo() {
   document.getElementById("displayName").innerHTML = "";
   document.getElementById("displayType").innerHTML = "";
+  document.getElementById("displaySprite").src = "./images/pokeball.png";
   document.getElementById("searchBar").value = "";
 }
 
@@ -42,11 +43,12 @@ function fetchPokemon() {
       let displayName = document.getElementById("displayName");
       displayName.innerHTML = `${results.name.charAt(0).toUpperCase() + results.name.slice(1)}`;
 
+      // Loops through Pokemon type in case there is more than one
       for (let i = 0; i < results.types.length; i++) {
+
         // Links up Pokemon type for display
         let displayType = document.getElementById("displayType");
 
-        // Need to loop through additional types, if they should exist
         displayType.innerHTML += ` ${results.types[i].type.name.charAt(0).toUpperCase() + results.types[i].type.name.slice(1)} `;
 
         console.log(results.types[i].type.name);
