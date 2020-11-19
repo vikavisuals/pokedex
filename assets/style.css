@@ -3,6 +3,7 @@ html, body {
   font-family: 'Quicksand', sans-serif;
 }
 
+/* Top header containing search bar, this is fixed */
 header {
   color: rgb(255, 255, 255);
   text-align: center;
@@ -13,11 +14,12 @@ header {
   position: fixed;
   top: 0;
 }
+/* App title name */
 #headerTitle {
   font-size: 50px;
   margin-right: 90px;
 }
-
+/* Bar to type in, searching for a Pokemon by name or number */
 #searchBar {
   border: none;
   outline: none;
@@ -30,6 +32,7 @@ header {
   text-align: center;
   width: 500px;
 }
+/* Button to launch a search */
 #searchBtn {
   border: none;
   outline: none;
@@ -49,22 +52,31 @@ header {
   background-color: rgb(98, 70, 129);
 }
 
+/* Pokemon name */
 #displayName {
   font-family: 'Quicksand', sans-serif;
   border: none;
   resize: none;
   font-size: 70px;
 }
+/* Pokemon type info box */
 #displayType {
   font-family: 'Quicksand', sans-serif;
-  border: none;
-  resize: none;
   font-size: 40px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  color: white;
+  background-color: rgb(30, 30, 30);
+  padding: 10px;
+  margin: 50px;
 }
+/* Pokemon image */
 #displaySprite {
   width: 300px;
   margin-top: 30px;
 }
+/* Box surrounding all Pokemon info pulled up by search */
 #pokemonInfo {
   text-align: center;
   margin-top: 150px;

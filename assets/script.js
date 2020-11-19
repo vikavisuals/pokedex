@@ -45,21 +45,23 @@ function fetchPokemon() {
       let displayName = document.getElementById("displayName");
       displayName.innerHTML = `${results.name.charAt(0).toUpperCase() + results.name.slice(1)}`;
 
+      // Links up Pokemon ID for sprite display
+      let displaySprite = document.getElementById("displaySprite");
+      displaySprite.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
+
       // Loops through Pokemon type in case there is more than one
       for (let i = 0; i < results.types.length; i++) {
 
-        // Links up Pokemon type for display
+        // Links up Pokemon type for display, each type as individual Div
         let displayType = document.createElement('div');
         displayType.setAttribute('id', 'displayType');
-        displayName.appendChild(displayType);
+        displaySprite.after(displayType);
 
         displayType.innerHTML += ` ${results.types[i].type.name.charAt(0).toUpperCase() + results.types[i].type.name.slice(1)} `;
 
         console.log(results.types[i].type.name);
       };
 
-      // Links up Pokemon ID for sprite display
-      document.getElementById("displaySprite").src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
     })
 
     .catch(function (error) {
