@@ -14,9 +14,11 @@ searchBtn.addEventListener("click", resetSearchInfo);
 // Resets displayed info after search button is hit
 function resetSearchInfo() {
   document.getElementById("displayName").innerHTML = "";
-  document.getElementById("displayType").innerHTML = "";
   document.getElementById("displaySprite").src = "./images/pokeball.png";
   document.getElementById("searchBar").value = "";
+  document.querySelectorAll('#displayType').forEach(function (type) {
+    return type.remove();
+  });
 }
 
 // Pokemon API info fetch
@@ -47,7 +49,9 @@ function fetchPokemon() {
       for (let i = 0; i < results.types.length; i++) {
 
         // Links up Pokemon type for display
-        let displayType = document.getElementById("displayType");
+        let displayType = document.createElement('div');
+        displayType.setAttribute('id', 'displayType');
+        displayName.appendChild(displayType);
 
         displayType.innerHTML += ` ${results.types[i].type.name.charAt(0).toUpperCase() + results.types[i].type.name.slice(1)} `;
 
