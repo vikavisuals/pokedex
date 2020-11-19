@@ -77,6 +77,10 @@ header {
   width: 300px;
   margin-top: 30px;
 }
+#superEffectiveTo {
+  font-size: 30px;
+  color: rgb(103, 173, 82);
+}
 /* Box surrounding all Pokemon info pulled up by search */
 #pokemonInfo {
   text-align: center;

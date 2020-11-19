@@ -19,7 +19,7 @@ function resetSearchInfo() {
   document.querySelectorAll('#displayType').forEach(function (type) {
     return type.remove();
   });
-  document.querySelectorAll('#displaySuperEffectiveTo').forEach(function (type) {
+  document.querySelectorAll('#superEffectiveTo').forEach(function (type) {
     return type.remove();
   });
 }
@@ -78,18 +78,22 @@ function fetchPokemon() {
             })
             .then(function (results) {
 
+              let damageTo = results.damage_relations.double_damage_to;
+              let damageFrom = results.damage_relations.double_damage_from;
+
               // Loops through Pokemon types this type is Super Effective against
-              for (let x = 0; x < results.damage_relations.double_damage_to.length; x++) {
+              for (let x = 0; x < damageTo.length; x++) {
 
                 // Links up Pokemon type for display, each type as individual Div
-                let displaySuperEffectiveTo = document.createElement('div');
+                let superEffectiveTo = document.createElement('ol');
                 let displayType = document.getElementById("displayType");
-                displaySuperEffectiveTo.setAttribute('id', 'displaySuperEffectiveTo');
-                displayType.after(displaySuperEffectiveTo);
+                superEffectiveTo.setAttribute('id', 'superEffectiveTo');
+                displayType.appendChild(superEffectiveTo);
 
-                displaySuperEffectiveTo.innerHTML += `${results.damage_relations.double_damage_to[x].name.charAt(0).toUpperCase() + results.damage_relations.double_damage_to[x].name.slice(1)}`;
+                superEffectiveTo.innerHTML += `${damageTo[x].name.charAt(0).toUpperCase() + damageTo[x].name.slice(1)}`;
 
-                console.log(results.damage_relations.double_damage_to[x]);
+                console.log(damageTo[x]);
+                console.log(results);
               };
 
             })
