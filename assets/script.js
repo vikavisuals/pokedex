@@ -1,13 +1,21 @@
 
-// Button that searches for a pokemon
-const searchBtn = document.querySelector("#searchBtn");
-searchBtn.addEventListener("click", fetchPokemon);
-
 // Keeps page from refreshing after form submit
 let searchForm = document.getElementById("searchForm");
 searchForm.addEventListener('submit', handleSearchForm);
 function handleSearchForm(event) {
   event.preventDefault();
+}
+
+// Button that searches for a pokemon
+const searchBtn = document.querySelector("#searchBtn");
+searchBtn.addEventListener("click", fetchPokemon);
+searchBtn.addEventListener("click", resetSearchInfo);
+
+// Resets displayed info after search button is hit
+function resetSearchInfo() {
+  document.getElementById("displayName").innerHTML = "";
+  document.getElementById("displayType").innerHTML = "";
+  document.getElementById("searchBar").value = "";
 }
 
 // Pokemon API info fetch
@@ -25,6 +33,7 @@ function fetchPokemon() {
     .then(function (response) {
       return response.json();
     })
+
     // Your code for handling the data you get from the API
     .then(function (results) {
       console.log(results);
@@ -32,7 +41,6 @@ function fetchPokemon() {
       // Links up Pokemon name display
       let displayName = document.getElementById("displayName");
       displayName.innerHTML = `${results.name.charAt(0).toUpperCase() + results.name.slice(1)}`;
-
 
       for (let i = 0; i < results.types.length; i++) {
         // Links up Pokemon type for display
@@ -48,10 +56,6 @@ function fetchPokemon() {
       document.getElementById("displaySprite").src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
     })
 
-    .then(function () {
-      document.getElementById("searchBar").value = "";
-    })
-    
     .catch(function (error) {
       console.log(error);
     });
