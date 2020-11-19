@@ -47,6 +47,10 @@ function fetchPokemon() {
       // Links up Pokemon ID for sprite display
       document.getElementById("displaySprite").src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${results.id}.png`;
     })
+
+    .then(function () {
+      document.getElementById("searchBar").value = "";
+    })
     
     .catch(function (error) {
       console.log(error);
