@@ -19,6 +19,9 @@ function resetSearchInfo() {
   document.querySelectorAll('#displayType').forEach(function (type) {
     return type.remove();
   });
+  document.querySelectorAll('#displaySuperEffectiveTo').forEach(function (type) {
+    return type.remove();
+  });
 }
 
 // Pokemon API info fetch
@@ -57,11 +60,45 @@ function fetchPokemon() {
         displayType.setAttribute('id', 'displayType');
         displaySprite.after(displayType);
 
-        displayType.innerHTML += ` ${results.types[i].type.name.charAt(0).toUpperCase() + results.types[i].type.name.slice(1)} `;
+        displayType.innerHTML += `${results.types[i].type.name.charAt(0).toUpperCase() + results.types[i].type.name.slice(1)}`;
 
-        console.log(results.types[i].type.name);
+        // API call to grab type info
+        function fetchType() {
+
+          let pokeType = document.getElementById("displayType").innerHTML;
+          pokeType = pokeType.toLowerCase().trim();
+
+          console.log(results.types[i].type.name);
+
+          let url = `https://pokeapi.co/api/v2/type/${pokeType}/`;
+
+          fetch(url)
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (results) {
+
+              // Loops through Pokemon types this type is Super Effective against
+              for (let x = 0; x < results.damage_relations.double_damage_to.length; x++) {
+
+                // Links up Pokemon type for display, each type as individual Div
+                let displaySuperEffectiveTo = document.createElement('div');
+                let displayType = document.getElementById("displayType");
+                displaySuperEffectiveTo.setAttribute('id', 'displaySuperEffectiveTo');
+                displayType.after(displaySuperEffectiveTo);
+
+                displaySuperEffectiveTo.innerHTML += `${results.damage_relations.double_damage_to[x].name.charAt(0).toUpperCase() + results.damage_relations.double_damage_to[x].name.slice(1)}`;
+
+                console.log(results.damage_relations.double_damage_to[x]);
+              };
+
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        };
+        fetchType();
       };
-
     })
 
     .catch(function (error) {
@@ -69,3 +106,5 @@ function fetchPokemon() {
     });
 
 };
+
+

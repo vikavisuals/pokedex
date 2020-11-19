@@ -1,6 +1,7 @@
 
 html, body {
   font-family: 'Quicksand', sans-serif;
+  background-color: rgb(214, 214, 214);
 }
 
 /* Top header containing search bar, this is fixed */
